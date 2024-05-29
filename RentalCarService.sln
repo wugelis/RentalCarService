@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.RentalCar", "Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.RentalCar", "Infrastructure.RentalCar\Infrastructure.RentalCar.csproj", "{E8569E8F-998B-4470-821C-74C38A4BC1D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.RentalCar", "Web.RentalCar\Web.RentalCar.csproj", "{04FB1FBA-7098-45A4-BA1D-536E09FB0435}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.RentalCar", "Web.RentalCar\Web.RentalCar.csproj", "{04FB1FBA-7098-45A4-BA1D-536E09FB0435}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "方案項目", "方案項目", "{767605AD-4FD7-4920-9C49-D0DA31CB6905}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
