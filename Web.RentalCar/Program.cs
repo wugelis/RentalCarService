@@ -1,12 +1,24 @@
 using Application.RentalCar;
 using Infrastructure.RentalCar;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+IConfigurationSection configuration = builder.Configuration.GetSection("AppSettings");
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+}).AddCookie(cookieOptions =>
+    {
+        cookieOptions.LoginPath = configuration.GetValue<string>("LoginPage"); //"/Account/Login";
+        cookieOptions.ExpireTimeSpan = TimeSpan.FromMinutes(configuration.GetValue<int>("TimeoutMinutes"));
+    });
 builder.Services.AddDbContext<SaleCarDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));

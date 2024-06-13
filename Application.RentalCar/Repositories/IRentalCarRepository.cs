@@ -21,6 +21,5 @@ namespace Application.RentalCar.Repositories
         /// <returns></returns>
         int SaveRentalCar(IVehicle vehicle);
 
-        int SaveAccount(AccountViewModel account);
     }
 }
