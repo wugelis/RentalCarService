@@ -1,4 +1,5 @@
 using Application.RentalCar;
+using Application.RentalCar.Repositories;
 using Infrastructure.RentalCar;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
@@ -21,11 +22,13 @@ builder.Services.AddAuthentication(options =>
     });
 builder.Services.AddDbContext<SaleCarDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("RentalCarConn"));
 });
 
 builder.Services.AddScoped<IQueryRentalCarUseCase, RentalCarRepository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<RentalCarServices>();
+builder.Services.AddScoped<AccountServices>();
 
 var app = builder.Build();
 

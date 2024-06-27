@@ -21,6 +21,8 @@ namespace Web.RentalCar.Controllers
         [Authorize]
         public IActionResult Index()
         {
+            ViewBag.AAAAAAAA = "AAAAAAA";
+
             return View();
         }
 
